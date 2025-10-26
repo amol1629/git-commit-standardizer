@@ -22,7 +22,7 @@ interface NavigationButtonProps {
 /**
  * Smooth, accessible NavigationButton
  * - avoids layout-changing animations (no border-width changes)
- * - accent uses transform/opacity (GPU-accelerated)
+ 
  * - icon has a subtle transform for motion
  * - respects prefers-reduced-motion
  */
