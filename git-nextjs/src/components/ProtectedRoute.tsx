@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { getFontAwesomeIcon } from '@/utils/fontawesome-mapping'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { isAuthRequired } from '@/config/auth.config'
 
 interface ProtectedRouteProps {
 	children: React.ReactNode
@@ -20,8 +21,13 @@ export default function ProtectedRoute({
 	const [isRedirecting, setIsRedirecting] = useState(false)
 
 	useEffect(() => {
-		// Only redirect if we're not already redirecting and not authenticated
-		if (!authState.isLoading && !authState.isAuthenticated && !isRedirecting) {
+		// Only redirect if auth is required, we're not already redirecting, and not authenticated
+		if (
+			isAuthRequired() &&
+			!authState.isLoading &&
+			!authState.isAuthenticated &&
+			!isRedirecting
+		) {
 			console.log(
 				'ProtectedRoute: User not authenticated, redirecting to login',
 			)
@@ -56,8 +62,11 @@ export default function ProtectedRoute({
 		)
 	}
 
-	// Double-check authentication before rendering
-	if (!authState.isAuthenticated || !authState.user) {
+	// Double-check authentication before rendering (only if auth is required)
+	if (
+		isAuthRequired() &&
+		(!authState.isAuthenticated || !authState.user)
+	) {
 		console.log('ProtectedRoute: Access denied - not authenticated or no user')
 		return (
 			fallback || (

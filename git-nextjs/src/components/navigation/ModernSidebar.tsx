@@ -141,8 +141,11 @@ export function ModernSidebar({ className }: ModernSidebarProps) {
 						))}
 					</nav>
 
-					{/* Footer with Theme Toggle */}
-					<SidebarFooter isCollapsed={isCollapsed} />
+					{/* Footer with sidebar expand/collapse toggle */}
+					<SidebarFooter
+						isCollapsed={isCollapsed}
+						onToggleCollapse={toggleCollapse}
+					/>
 				</div>
 			</aside>
 		</TooltipProvider>

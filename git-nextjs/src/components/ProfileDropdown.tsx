@@ -12,6 +12,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { getFontAwesomeIcon } from '@/utils/fontawesome-mapping'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
+import { isAuthRequired } from '@/config/auth.config'
 
 interface ProfileDropdownProps {
 	trigger?: React.ReactNode
@@ -24,7 +25,12 @@ export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 
 	const handleLogout = () => {
 		logout()
-		router.push('/auth/login')
+		// Redirect to home if auth is disabled, otherwise to login
+		if (isAuthRequired()) {
+			router.push('/auth/login')
+		} else {
+			router.push('/home')
+		}
 	}
 
 	const toggleTheme = () => {

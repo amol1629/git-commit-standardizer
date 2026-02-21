@@ -47,7 +47,9 @@ export function MobileMenuButton({
 					strokeLinejoin="round"
 					strokeWidth={2}
 					className="transition-all duration-200 ease-in-out"
-					d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+					// d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+					d="M4 6h16M4 12h16M4 18h16"
+
 				/>
 			</svg>
 		</button>

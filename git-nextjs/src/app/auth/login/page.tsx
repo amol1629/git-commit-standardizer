@@ -12,6 +12,7 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { isLoginEnabled } from '@/config/auth.config'
 
 export default function LoginPage() {
 	const [email, setEmail] = useState('')
@@ -22,10 +23,22 @@ export default function LoginPage() {
 	const { login } = useAuth()
 	const { setTheme } = useTheme()
 
+	// Redirect to home if login is disabled
+	useEffect(() => {
+		if (!isLoginEnabled()) {
+			router.replace('/home')
+		}
+	}, [router])
+
 	// Force light theme for login page
 	useEffect(() => {
 		setTheme('light')
 	}, [setTheme])
+
+	// Don't render login form if login is disabled
+	if (!isLoginEnabled()) {
+		return null
+	}
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()

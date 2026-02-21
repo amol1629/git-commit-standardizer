@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Import all Font Awesome icons we need
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
+	faAngleDoubleLeft,
+	faAngleDoubleRight,
 	faArchive,
 	faArrowRight,
 	faBolt,
@@ -152,6 +154,12 @@ export const byPrefixAndName: Record<string, Record<string, IconDefinition>> = {
 	fas: {
 		maximize: faMaximize,
 		minimize: faMinimize,
+		'chevron-left': faChevronLeft,
+		'chevron-right': faChevronRight,
+		'chevron-up': faChevronUp,
+		'chevron-down': faChevronDown,
+		'angle-double-left': faAngleDoubleLeft,
+		'angle-double-right': faAngleDoubleRight,
 	},
 }
 

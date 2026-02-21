@@ -6,12 +6,16 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
+import { isAuthRequired } from '@/config/auth.config'
 
 export default async function Generator() {
-	const session = await getServerSession(authOptions)
+	// Only check session if auth is required
+	if (isAuthRequired()) {
+		const session = await getServerSession(authOptions)
 
-	if (!session) {
-		redirect('/auth/login')
+		if (!session) {
+			redirect('/auth/login')
+		}
 	}
 
 	return (

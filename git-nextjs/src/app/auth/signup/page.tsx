@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { isSignupEnabled } from '@/config/auth.config'
 
 export default function SignupPage() {
 	const [name, setName] = useState('')
@@ -25,10 +26,22 @@ export default function SignupPage() {
 	const router = useRouter()
 	const { setTheme } = useTheme()
 
+	// Redirect to home if signup is disabled
+	useEffect(() => {
+		if (!isSignupEnabled()) {
+			router.replace('/home')
+		}
+	}, [router])
+
 	// Force light theme for signup page
 	useEffect(() => {
 		setTheme('light')
 	}, [setTheme])
+
+	// Don't render signup form if signup is disabled
+	if (!isSignupEnabled()) {
+		return null
+	}
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
