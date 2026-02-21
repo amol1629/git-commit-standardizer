@@ -1,35 +1,22 @@
+
+
 /* Materio Carousel - Responsive & Ultra Smooth */
 .materio-carousel {
 	position: relative;
 	overflow: visible;
 	padding: 1rem 0;
-	/* Hardware acceleration for smooth performance */
-	transform: translateZ(0);
-	will-change: transform;
 }
 
 /* Center card highlighting - Responsive */
 .center-card {
-	transform: scale(1.02) translateZ(0);
 	opacity: 1;
 	z-index: 10;
 	position: relative;
-	/* Hardware acceleration */
-	will-change: transform, opacity;
 }
 
-.left-card {
-	transform: scale(0.9) translateX(-10px) translateZ(0);
-	opacity: 0.7;
-	filter: grayscale(0.2);
-	will-change: transform, opacity, filter;
-}
-
+.left-card,
 .right-card {
-	transform: scale(0.9) translateX(10px) translateZ(0);
-	opacity: 0.7;
-	filter: grayscale(0.2);
-	will-change: transform, opacity, filter;
+	opacity: 0.85;
 }
 
 /* Smooth carousel transitions - only for non-animated states */
@@ -61,41 +48,32 @@
 /* Center card transition animation - Ultra smooth */
 .center-card-transition {
 	animation: centerCardTransition 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-	will-change: transform, opacity, filter;
-	/* Force hardware acceleration */
-	transform: translateZ(0);
 }
 
 @keyframes centerCardTransition {
 	0% {
-		transform: scale(0.9) translateX(10px) translateZ(0);
-		opacity: 0.7;
-		filter: grayscale(0.2);
+		opacity: 0.75;
+		filter: none;
 	}
 	100% {
-		transform: scale(1.02) translateX(0) translateZ(0);
 		opacity: 1;
-		filter: grayscale(0);
+		filter: none;
 	}
 }
 
 /* Fixed hover effects - no clipping */
 .center-card:hover {
-	transform: scale(1.08);
-	/* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); */
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .dark .center-card:hover {
-	/* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); */
 	box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
 }
 
 /* Side card hover effects */
 .left-card:hover,
 .right-card:hover {
-	transform: scale(0.9);
-	opacity: 0.8;
-	filter: grayscale(0.1);
+	opacity: 0.95;
 }
 
 /* Clean pagination dots */
@@ -119,26 +97,16 @@
 
 /* Responsive adjustments for ultra-smooth performance */
 @media (max-width: 1024px) {
-	.center-card {
-		transform: scale(1.01) translateZ(0);
-	}
-
 	.left-card,
 	.right-card {
-		transform: scale(0.85) translateX(-5px) translateZ(0);
-		opacity: 0.6;
+		opacity: 0.75;
 	}
 }
 
 @media (max-width: 768px) {
-	.center-card {
-		transform: scale(1) translateZ(0);
-	}
-
 	.left-card,
 	.right-card {
-		transform: scale(0.8) translateX(-3px) translateZ(0);
-		opacity: 0.5;
+		opacity: 0.65;
 	}
 }
 
@@ -147,10 +115,6 @@
 	.left-card,
 	.right-card {
 		display: none;
-	}
-
-	.center-card {
-		transform: scale(1) translateZ(0);
 	}
 
 	.materio-carousel {

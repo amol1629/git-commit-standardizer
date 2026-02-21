@@ -78,7 +78,7 @@ const TabsList = React.forwardRef<
 		>
 			{/* Sliding background */}
 			<div
-				className="absolute top-1 bottom-1 bg-gradient-to-t from-[#feada6] to-[#f8d2f8] rounded-full transition-all duration-300 ease-in-out"
+				className="absolute top-1 bottom-1 bg-gradient-to-t from-[#fad8d4] to-[#fde9fd] rounded-full transition-all duration-300 ease-in-out"
 				style={sliderStyle}
 			/>
 			{children}

@@ -70,20 +70,20 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 		description: 'Generate changelogs from commits',
 		ariaLabel: 'navigation_changelog_aria_label',
 	},
-	{
-		name: 'interactive_practice',
-		href: '/interactive-practice',
-		icon: 'Play',
-		description: 'Practice writing conventional commits',
-		ariaLabel: 'navigation_interactive_practice_aria_label',
-	},
-	{
-		name: 'team_training',
-		href: '/team-training',
-		icon: 'Users',
-		description: 'Team training and resources',
-		ariaLabel: 'navigation_team_training_aria_label',
-	},
+	// {
+	// 	name: 'interactive_practice',
+	// 	href: '/interactive-practice',
+	// 	icon: 'Play',
+	// 	description: 'Practice writing conventional commits',
+	// 	ariaLabel: 'navigation_interactive_practice_aria_label',
+	// },
+	// {
+	// 	name: 'team_training',
+	// 	href: '/team-training',
+	// 	icon: 'Users',
+	// 	description: 'Team training and resources',
+	// 	ariaLabel: 'navigation_team_training_aria_label',
+	// },
 ]
 
 /**

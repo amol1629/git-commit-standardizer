@@ -92,18 +92,14 @@ export function NavigationButton({
 				)}
 
 				{/* Icon: subtle transform on active/hover with colorful gradient */}
-				<span
-					className={cn(
-						'flex-shrink-0 transform-gpu will-change-transform flex items-center justify-center',
-						// animate only transform (scale/translate)
-						'motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-out',
-						isActive ? 'scale-105' : 'scale-100',
-						// Ensure consistent icon size and alignment
-						isCollapsed ? 'w-6 h-6' : 'w-5 h-5',
-					)}
-					aria-hidden="true"
-					role="img"
-				>
+		<span
+			className={cn(
+				'flex-shrink-0 flex items-center justify-center',
+				isCollapsed ? 'w-6 h-6' : 'w-5 h-5',
+			)}
+			aria-hidden="true"
+			role="img"
+		>
 					{getGradientIcon(item.icon, isCollapsed ? 'w-6 h-6' : 'w-5 h-5')}
 				</span>
 

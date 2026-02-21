@@ -23,7 +23,16 @@ interface ModernSidebarProps {
 export function ModernSidebar({ className }: ModernSidebarProps) {
 	const { t } = useTranslation(['common'])
 	const [isOpen, setIsOpen] = useState(false)
-	const [isCollapsed, setIsCollapsed] = useState(false)
+	const [isCollapsed, setIsCollapsed] = useState<boolean>(() => {
+		if (typeof window !== 'undefined') {
+			const storedCollapseState =
+				window.localStorage.getItem('sidebar-collapsed')
+			if (storedCollapseState !== null) {
+				return storedCollapseState === 'true'
+			}
+		}
+		return true
+	})
 
 	// Initialize navigation service following Dependency Injection principle
 	const navigationService = new NavigationService(NAVIGATION_ITEMS)
@@ -35,8 +44,22 @@ export function ModernSidebar({ className }: ModernSidebarProps) {
 	}
 
 	const toggleCollapse = useCallback(() => {
-		setIsCollapsed(!isCollapsed)
-	}, [isCollapsed])
+		setIsCollapsed((prev) => {
+			const next = !prev
+			if (typeof window !== 'undefined') {
+				window.localStorage.setItem('sidebar-collapsed', String(next))
+			}
+			return next
+		})
+	}, [])
+
+	const handleNavItemClick = useCallback(() => {
+		if (typeof window !== 'undefined') {
+			if (window.matchMedia('(max-width: 767px)').matches) {
+				setIsOpen(false)
+			}
+		}
+	}, [])
 
 	const translatedItems = getTranslatedNavigationItems()
 
@@ -111,10 +134,7 @@ export function ModernSidebar({ className }: ModernSidebarProps) {
 								<NavigationButton
 									item={item}
 									isActive={isActiveRoute(item.href)}
-									onClick={() => {
-										setIsOpen(false)
-										// Don't change collapsed state when clicking navigation items
-									}}
+									onClick={handleNavItemClick}
 									isCollapsed={isCollapsed}
 								/>
 							</div>

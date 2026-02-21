@@ -40,6 +40,8 @@ import {
 	faHistory,
 	faHome,
 	faInfo,
+	faMaximize,
+	faMinimize,
 	faLightbulb,
 	faLock,
 	faMoon,
@@ -128,6 +130,8 @@ export const fontAwesomeIconMap: Record<string, IconDefinition> = {
 	Heart: faHeart,
 	Star: faStar,
 	Rocket: faRocket,
+	Maximize: faMaximize,
+	Minimize: faMinimize,
 	// Navigation icons
 	Play: faPlay,
 	// Profile and settings icons
@@ -142,6 +146,13 @@ export const fontAwesomeIconMap: Record<string, IconDefinition> = {
 	// Photo upload icons
 	Edit: faEdit,
 	Times: faTimes,
+}
+
+export const byPrefixAndName: Record<string, Record<string, IconDefinition>> = {
+	fas: {
+		maximize: faMaximize,
+		minimize: faMinimize,
+	},
 }
 
 /**

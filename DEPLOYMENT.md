@@ -9,17 +9,20 @@ This guide covers deploying the Git Conventional Commits Practice application to
 ### 1. **Vercel (Recommended)**
 
 #### **Quick Deploy**
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/alongside-amolrathod/Git_Conventional_Commits_Practice)
 
 #### **Manual Deployment**
+
 1. **Connect Repository**
+
    ```bash
    # Install Vercel CLI
    npm i -g vercel
-   
+
    # Login to Vercel
    vercel login
-   
+
    # Deploy from project directory
    cd git-nextjs
    vercel
@@ -27,6 +30,7 @@ This guide covers deploying the Git Conventional Commits Practice application to
 
 2. **Environment Variables**
    Set the following environment variables in Vercel dashboard:
+
    ```
    NEXTAUTH_URL=https://your-app.vercel.app
    NEXTAUTH_SECRET=your-secret
@@ -48,12 +52,15 @@ This guide covers deploying the Git Conventional Commits Practice application to
 ### 2. **Netlify**
 
 #### **Deployment Steps**
+
 1. **Connect Repository**
+
    - Go to [Netlify](https://netlify.com)
    - Click "New site from Git"
    - Connect your GitHub repository
 
 2. **Build Settings**
+
    ```
    Build command: npm run build
    Publish directory: .next
@@ -65,6 +72,7 @@ This guide covers deploying the Git Conventional Commits Practice application to
 ### 3. **Self-Hosted (Docker)**
 
 #### **Dockerfile**
+
 ```dockerfile
 FROM node:18-alpine
 
@@ -82,23 +90,24 @@ CMD ["npm", "start"]
 ```
 
 #### **Docker Compose**
+
 ```yaml
 version: '3.8'
 services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       - NODE_ENV=production
       - MONGODB_URI=mongodb://mongo:27017/git-commits-practice
     depends_on:
       - mongo
-  
+
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo_data:/data/db
 
@@ -111,6 +120,7 @@ volumes:
 ### **Required Environment Variables**
 
 #### **Core Application**
+
 ```bash
 NEXTAUTH_URL=https://your-domain.com
 NEXTAUTH_SECRET=your-nextauth-secret
@@ -118,11 +128,13 @@ NODE_ENV=production
 ```
 
 #### **Database**
+
 ```bash
 MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/git-commits-practice
 ```
 
 #### **OAuth Providers**
+
 ```bash
 # Google OAuth
 GOOGLE_CLIENT_ID=your-google-client-id
@@ -134,18 +146,21 @@ GITHUB_CLIENT_SECRET=your-github-client-secret
 ```
 
 #### **Email Service**
+
 ```bash
 RESEND_API_KEY=your-resend-api-key
 EMAIL_FROM=noreply@yourdomain.com
 ```
 
 #### **Security**
+
 ```bash
 JWT_SECRET=your-jwt-secret
 ENCRYPTION_KEY=your-encryption-key
 ```
 
 ### **Optional Environment Variables**
+
 ```bash
 GOOGLE_ANALYTICS_ID=your-ga-id
 SENTRY_DSN=your-sentry-dsn
@@ -156,15 +171,18 @@ SENTRY_DSN=your-sentry-dsn
 ### **MongoDB Atlas (Recommended)**
 
 1. **Create Account**
+
    - Go to [MongoDB Atlas](https://cloud.mongodb.com)
    - Create a free account
 
 2. **Create Cluster**
+
    - Choose your region
    - Select M0 (Free) tier
    - Configure network access
 
 3. **Database User**
+
    - Create a database user
    - Set strong password
    - Note the connection string
@@ -192,10 +210,12 @@ mongod --dbpath /path/to/your/db
 ### **Google OAuth**
 
 1. **Google Cloud Console**
+
    - Go to [Google Cloud Console](https://console.cloud.google.com)
    - Create a new project or select existing
 
 2. **Enable APIs**
+
    - Enable Google+ API
    - Enable Google OAuth2 API
 
@@ -209,6 +229,7 @@ mongod --dbpath /path/to/your/db
 ### **GitHub OAuth**
 
 1. **GitHub Settings**
+
    - Go to GitHub Settings > Developer settings
    - Click "New OAuth App"
 
@@ -222,10 +243,12 @@ mongod --dbpath /path/to/your/db
 ### **Resend (Recommended)**
 
 1. **Create Account**
+
    - Go to [Resend](https://resend.com)
    - Sign up for free account
 
 2. **Get API Key**
+
    - Go to API Keys section
    - Create new API key
    - Copy the key
@@ -238,11 +261,13 @@ mongod --dbpath /path/to/your/db
 ### **Alternative Email Services**
 
 #### **SendGrid**
+
 ```bash
 SENDGRID_API_KEY=your-sendgrid-api-key
 ```
 
 #### **Mailgun**
+
 ```bash
 MAILGUN_API_KEY=your-mailgun-api-key
 MAILGUN_DOMAIN=your-mailgun-domain
@@ -294,6 +319,7 @@ npm start
 ### **4. Deploy**
 
 #### **Vercel Deployment**
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -306,6 +332,7 @@ vercel --prod
 ```
 
 #### **Manual Deployment**
+
 ```bash
 # Build the application
 npm run build
@@ -347,11 +374,13 @@ npm run security:template
 ### **Performance Monitoring**
 
 1. **Vercel Analytics**
+
    - Built-in performance monitoring
    - Core Web Vitals tracking
    - Real-time analytics
 
 2. **Google Analytics**
+
    ```bash
    GOOGLE_ANALYTICS_ID=your-ga-id
    ```
@@ -390,12 +419,12 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-      
+
       - run: npm ci
       - run: npm run type-check
       - run: npm run lint
       - run: npm run build
-      
+
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
@@ -410,6 +439,7 @@ jobs:
 ### **Common Issues**
 
 #### **Build Failures**
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -418,16 +448,19 @@ npm run build
 ```
 
 #### **Database Connection Issues**
+
 - Check MongoDB URI format
 - Verify network access
 - Check authentication credentials
 
 #### **OAuth Issues**
+
 - Verify redirect URIs
 - Check client ID and secret
 - Ensure HTTPS in production
 
 #### **Email Issues**
+
 - Verify API key
 - Check domain configuration
 - Test with `/api/test-email`
@@ -445,17 +478,20 @@ npm run security:validate
 ## 📞 **Support**
 
 ### **Documentation**
+
 - **README.md**: Complete project documentation
 - **SECURITY.md**: Security guidelines
 - **ENV_SETUP.md**: Environment setup guide
 - **EMAIL_SETUP.md**: Email configuration
 
 ### **Community Support**
+
 - **GitHub Issues**: Bug reports and feature requests
 - **Discord**: Community support
 - **Stack Overflow**: Technical questions
 
 ### **Professional Support**
+
 - **Email**: support@conventional-commits-practice.com
 - **GitHub Discussions**: Community discussions
 - **Documentation**: Comprehensive guides

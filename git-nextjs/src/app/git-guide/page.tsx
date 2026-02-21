@@ -9,9 +9,9 @@ export default function GitGuide() {
 		<ProtectedRoute>
 			<Layout>
 				<AnimatedBackground>
-					<div className="container relative max-w-6xl px-4 py-6 mx-auto">
+					<div className="container relative max-w-6xl px-4 py-16 mx-auto">
 						<AnimatedHeader
-							badge="Git & GitHub Guide"
+							// badge="Git & GitHub Guide"
 							title="Master Git and GitHub"
 							description="Learn essential Git commands and GitHub features for better version control"
 						/>

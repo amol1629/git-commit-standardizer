@@ -22,13 +22,7 @@ export default function AnimatedBackground({
 			<div
 				className={`absolute inset-0 z-0 ${currentTheme === 'dark' ? 'hidden' : 'block'}`}
 				style={{
-					background: '#fffafc',
-					backgroundImage: `
-						radial-gradient(circle at 10% 20%, rgba(255,182,193,0.4) 6px, transparent 0),
-						radial-gradient(circle at 80% 30%, rgba(173,216,230,0.4) 8px, transparent 0),
-						radial-gradient(circle at 40% 70%, rgba(255,223,186,0.5) 10px, transparent 0),
-						radial-gradient(circle at 70% 80%, rgba(186,255,201,0.4) 7px, transparent 0)
-					`,
+					backgroundColor: 'hsl(var(--background))',
 				}}
 			/>
 

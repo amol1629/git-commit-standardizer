@@ -215,4 +215,5 @@ export function FeaturesSection() {
 			</div>
 		</section>
 	)
+	
 }

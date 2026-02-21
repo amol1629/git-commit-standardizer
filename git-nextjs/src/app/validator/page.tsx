@@ -9,7 +9,7 @@ export default function Validator() {
 		<ProtectedRoute>
 			<Layout>
 				<AnimatedBackground>
-					<div className="container relative max-w-6xl px-4 py-6 mx-auto">
+					<div className="container relative max-w-6xl px-4 py-16 mx-auto">
 						<AnimatedHeader
 							badge="Validation Tool"
 							title="Commit Message Validator"

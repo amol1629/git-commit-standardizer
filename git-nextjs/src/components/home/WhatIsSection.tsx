@@ -33,20 +33,20 @@ Closes #456`
 
 	return (
 		<section
-			className="px-4 py-20 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-white dark:bg-slate-900"
+			className="px-4 py-20 bg-white sm:px-6 lg:px-8 xl:px-12 2xl:px-16 dark:bg-slate-900"
 			aria-labelledby="whatis-title"
 		>
 			<div className="mx-auto max-w-7xl">
-				<div className="mb-8 sm:mb-12 lg:mb-16 text-center">
+				<div className="mb-8 text-center sm:mb-12 lg:mb-16">
 					<h2
 						id="whatis-title"
-						className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white"
+						className="mb-4 text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl dark:text-white"
 					>
 						<span className="text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-emerald-400 bg-clip-text">
 							What is Conventional Commits?
 						</span>
 					</h2>
-					<p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-200 dark:text-opacity-90 px-4">
+					<p className="max-w-4xl px-4 mx-auto text-base text-gray-600 sm:text-lg lg:text-xl dark:text-gray-200 dark:text-opacity-90">
 						Conventional Commits is a specification for adding human and machine
 						readable meaning to commit messages. It provides a simple set of
 						rules for creating an explicit commit history, which makes it easier
@@ -56,10 +56,10 @@ Closes #456`
 
 				<div className="grid items-center gap-6 sm:gap-8 lg:gap-12 md:grid-cols-2">
 					<div className="space-y-4 sm:space-y-6">
-						<h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent">
+						<h3 className="text-xl font-bold text-gray-900 sm:text-2xl lg:text-3xl dark:text-white dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent">
 							Industry Benefits
 						</h3>
-						<div className="space-y-3 sm:space-y-4 text-gray-600 dark:text-gray-200 dark:text-opacity-90">
+						<div className="space-y-3 text-gray-600 sm:space-y-4 dark:text-gray-200 dark:text-opacity-90">
 							<p className="text-sm sm:text-base lg:text-lg">
 								Conventional Commits have become the industry standard for
 								modern software development. They provide a uniform structure
@@ -100,7 +100,7 @@ Closes #456`
 							</ul>
 						</div>
 					</div>
-					<div className="p-8 bg-gray-50 dark:bg-slate-800 dark:border dark:border-slate-700 rounded-lg shadow-lg dark:shadow-slate-900/20">
+					<div className="p-8 rounded-lg shadow-lg bg-gray-50 dark:bg-slate-800 dark:border dark:border-slate-700 dark:shadow-slate-900/20">
 						<div className="flex items-center justify-between mb-4">
 							<h4 className="text-xl font-semibold text-gray-900 dark:text-white dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent">
 								Standard Format
@@ -128,7 +128,7 @@ Closes #456`
 						</div>
 						<div
 							id="code-example"
-							className="p-4 font-mono text-sm text-green-400 dark:text-green-300 bg-gray-900 dark:bg-slate-900 dark:border dark:border-slate-700 rounded-lg shadow-inner dark:shadow-slate-900/50"
+							className="p-4 font-mono text-sm text-green-400 bg-gray-900 rounded-lg shadow-inner dark:text-green-300 dark:bg-slate-900 dark:border dark:border-slate-700 dark:shadow-slate-900/50"
 							role="region"
 							aria-label="Conventional commit format example"
 						>
