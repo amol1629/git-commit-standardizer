@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/contexts/AuthContext'
 import { getFontAwesomeIcon } from '@/utils/fontawesome-mapping'
-import { useTheme } from 'next-themes'
+// import { useTheme } from 'next-themes' // Removed - light theme is enforced globally
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -21,7 +21,7 @@ export default function LoginPage() {
 	const [error, setError] = useState('')
 	const router = useRouter()
 	const { login } = useAuth()
-	const { setTheme } = useTheme()
+	// const { setTheme } = useTheme() // Removed - light theme is enforced globally
 
 	// Redirect to home if login is disabled
 	useEffect(() => {
@@ -30,10 +30,7 @@ export default function LoginPage() {
 		}
 	}, [router])
 
-	// Force light theme for login page
-	useEffect(() => {
-		setTheme('light')
-	}, [setTheme])
+	// Theme is now enforced globally as light mode
 
 	// Don't render login form if login is disabled
 	if (!isLoginEnabled()) {

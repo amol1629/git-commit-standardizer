@@ -82,8 +82,21 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" suppressHydrationWarning className="light">
 			<head>
+				{/* Force light theme - prevent dark theme flash */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							(function() {
+								try {
+									document.documentElement.classList.remove('dark');
+									document.documentElement.classList.add('light');
+								} catch (e) {}
+							})();
+						`,
+					}}
+				/>
 				{/* Preload only the most critical resources */}
 				<link
 					rel="preload"
@@ -99,8 +112,8 @@ export default function RootLayout({
 				<ErrorBoundary>
 					<ThemeProvider
 						attribute="class"
-						defaultTheme="system"
-						enableSystem
+						forcedTheme="light"
+						enableSystem={false}
 						disableTransitionOnChange
 					>
 						<ClientProviders>

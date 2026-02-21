@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from '@/contexts/AuthContext'
-import { ThemeToggle } from '@/components/theme-toggle'
+// import { ThemeToggle } from '@/components/theme-toggle' // Removed for light-only theme
 import { User, LogOut, Settings } from 'lucide-react'
 import {
   DropdownMenu,
@@ -75,10 +75,10 @@ export function ModernSidebarFooter() {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      {/* Theme Toggle */}
-      <div className="flex justify-center">
+      {/* Theme Toggle - Removed for light-only theme */}
+      {/* <div className="flex justify-center">
         <ThemeToggle />
-      </div>
+      </div> */}
     </div>
   )
 }

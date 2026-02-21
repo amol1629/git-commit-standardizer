@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from '@/contexts/AuthContext'
 import { getFontAwesomeIcon } from '@/utils/fontawesome-mapping'
-import { useTheme } from 'next-themes'
+// import { useTheme } from 'next-themes' // Removed for light-only theme
 import { useRouter } from 'next/navigation'
 import { isAuthRequired } from '@/config/auth.config'
 
@@ -20,7 +20,7 @@ interface ProfileDropdownProps {
 
 export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 	const { logout } = useAuth()
-	const { setTheme, theme } = useTheme()
+	// const { setTheme, theme } = useTheme() // Removed for light-only theme
 	const router = useRouter()
 
 	const handleLogout = () => {
@@ -33,9 +33,10 @@ export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 		}
 	}
 
-	const toggleTheme = () => {
-		setTheme(theme === 'light' ? 'dark' : 'light')
-	}
+	// Theme toggle removed - app is light mode only
+	// const toggleTheme = () => {
+	// 	setTheme(theme === 'light' ? 'dark' : 'light')
+	// }
 
 	const defaultTrigger = (
 		<Button
@@ -90,8 +91,8 @@ export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 					</span>
 				</DropdownMenuItem>
 
-				{/* Theme Toggle */}
-				<DropdownMenuItem
+				{/* Theme Toggle - Removed for light-only theme */}
+				{/* <DropdownMenuItem
 					onClick={(e) => {
 						e.preventDefault()
 						toggleTheme()
@@ -115,7 +116,6 @@ export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 							Theme
 						</span>
 					</div>
-					{/* Toggle Switch */}
 					<div className="flex items-center">
 						<div
 							className={`relative inline-flex h-5 w-9 items-center rounded-full transition-all duration-300 ${
@@ -131,7 +131,7 @@ export function ProfileDropdown({ trigger }: ProfileDropdownProps) {
 							/>
 						</div>
 					</div>
-				</DropdownMenuItem>
+				</DropdownMenuItem> */}
 
 				<DropdownMenuSeparator className="my-2" />
 
